@@ -32,13 +32,6 @@ async function generateAccessRefreshToken(id) {
 const registerUser = asyncHandler(async (req, res) => {
   const { username, password, email } = req.body;
 
-  // if(
-  //     [name,email,phonenum,password,phoneNum].some((field)=>field.trim()==="")
-  // )
-
-  // {
-  //     throw new ApiError(400,"All fields are required")
-  // }
   const existeduser = await User.findOne({
     $or: [{ username }],
   });

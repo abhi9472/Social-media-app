@@ -12,6 +12,14 @@ import {
 } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJwt } from "../middlewares/auth.middleware.js";
+import {
+  addFriend,
+  getAllUsers,
+  getFriendsList,
+  recommendFriends,
+  searchUsers,
+  unfriendUser,
+} from "../controllers/search.controller.js";
 // import { isAdmin } from "../middlewares/isAdmin.middleware.js";
 // import {
 //   addhome,
@@ -68,7 +76,15 @@ router.route("/logout").post(verifyJwt, logoutUser);
 //   addhome
 // );
 // router.route("/userdetail").post(verifyJwt, userdetail);
-// router.route("/allhomes").post(allhomes);
+// export { getAllUsers, searchUsers, getFriendsList, unfriendUser };
+
+router.route("/allusers").post(getAllUsers);
+router.route("/searchusers").post(searchUsers);
+router.route("/getlist").post(getFriendsList);
+router.route("/unfriend").post(unfriendUser);
+router.route("/add").post(addFriend);
+router.route("/recommend").post(recommendFriends);
+
 // router.route("/getuserhome").post(verifyJwt, getuserhome);
 // router.route("/gethomedetail").get(gethomedetail);
 // router.get('gethomedetail', gethomedetail);
